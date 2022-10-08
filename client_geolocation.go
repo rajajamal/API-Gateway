@@ -4,11 +4,11 @@ import (
 	"context"
 	"log"
 
-	"./geolocation/geolocation"
+	"github.com/rajajamal/API-Gateway/geolocation/geolocation"
 	"google.golang.org/grpc"
 )
 
-func main() {
+func geoServer() {
 	var conn *grpc.ClientConn
 	conn, err := grpc.Dial(":10000", grpc.WithInsecure())
 	if err != nil {
@@ -17,7 +17,7 @@ func main() {
 	defer conn.Close()
 	c := geolocation.NewGeoLocationServiceClient(conn)
 	response, err := c.GetGeoLocationData(context.Background(), &geolocation.
-		Message{Body: "Hello"})
+		Pesan{Body: "Hello"})
 	if err != nil {
 		log.Fatalf("Error when retrieving GeoLocation Data: %s", err)
 	}

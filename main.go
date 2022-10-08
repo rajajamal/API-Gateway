@@ -5,7 +5,6 @@ import (
 	"log"
 	"net"
 
-	"./geolocation/geolocation"
 	"google.golang.org/grpc"
 )
 
